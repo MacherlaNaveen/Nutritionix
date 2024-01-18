@@ -1,0 +1,32 @@
+#server:
+#  port: 8087
+#
+#spring:
+#  application:
+#    name: nutrition-config-server
+#
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri:https://github.com/MacherlaNaveen/config-server-properties.git
+#          clone-on-start: true
+
+server:
+  port: 8087
+
+spring:
+  application:
+    name: nutrition-config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/MacherlaNaveen/config-server-properties.git
+          clone-on-start: true
+
+eureka:
+   client:
+       service-url:
+            defaultZone: http://nutritionix-lb-1201427945.eu-north-1.elb.amazonaws.com:8761/eureka/

@@ -1,0 +1,56 @@
+/* Navbar styles */
+.navbar {
+  background-color: #007BFF; /* Blue color for the navbar */
+  padding: 15px 0;
+  border-bottom: 2px solid #0056b3; /* Darker shade for the border */
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff; /* Color for the toggle button icon */
+}
+
+.navbar-toggler {
+  border: 1px solid #fff; /* Color for the toggle button border */
+}
+
+.navbar-nav {
+  margin-top: 10px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  margin: 0 15px;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffd700; /* Hover color for the links */
+}
+
+/* Footer styles */
+body {
+  margin-bottom: 100px; /* Adjust as needed to keep footer at the bottom */
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40; /* Dark color for the footer */
+  padding: 15px 0;
+  color: #fff;
+}
+
+.footer a {
+  color: #fff;
+}
+
+.footer a:hover {
+  color: #ffd700; /* Hover color for footer links */
+}

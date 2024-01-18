@@ -1,0 +1,251 @@
+<br><br>
+
+<div class="container mt-5">
+  <h1>Welcome, {{ username }}!</h1>
+
+  
+
+ 
+  <div *ngIf="wishList.length > 0; else noItems" class="row">
+    <div *ngFor="let foodItem of wishList" class="col-md-4 mb-4 d-flex">
+      <div class="card flex-fill">
+        <img [src]="foodItem.image_url" alt="{{ foodItem.nix_item_name }}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ foodItem.nix_item_name }}</h5>
+          <p class="card-text">Brand: {{ foodItem.nix_brand_name }}</p>
+          <p><strong>Serving Quantity:</strong> {{ foodItem.serving_qty }} {{ foodItem.serving_unit }}</p>
+            <p><strong>Calories:</strong> {{ foodItem.nf_calories }}</p>
+            <p><strong>Total Fat:</strong> {{ foodItem.nf_total_fat }}</p>
+            <p><strong>Saturated Fat:</strong> {{ foodItem.nf_saturated_fat }}</p>
+            <p><strong>Cholesterol:</strong> {{ foodItem.nf_cholesterol }}</p>
+            <p><strong>Sodium:</strong> {{ foodItem.nf_sodium }}</p>
+            <p><strong>Total Carbohydrate:</strong> {{ foodItem.nf_total_carbohydrate }}</p>
+            <p><strong>Dietary Fiber:</strong> {{ foodItem.nf_dietary_fiber }}</p>
+            <p><strong>Sugars:</strong> {{ foodItem.nf_sugars }}</p>
+            <p><strong>Protein:</strong> {{ foodItem.nf_protein }}</p>
+            <p><strong>Potassium:</strong> {{ foodItem.nf_potassium }}</p>
+          
+          <button (click)="deleteFoodItemFromWishList(foodItem)" class="btn btn-danger">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <ng-template #noItems>
+    <p>Your wishlist is empty. Start adding items!</p>
+  </ng-template>
+
+
+  <button (click)="addNewProducts()" class="btn btn-success">Add New Products</button>
+  <br><br><br><br><br><br>
+ 
+  <button (click)="logout()" class="btn btn-secondary">Logout</button>
+</div>
+<br><br><br><br><br><br>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="text-center mt-3">
+  <button mat-raised-button color="primary" (click)="addNewProducts()">Add New Products</button>
+</div>
+
+<h1 class="text-center"> Hi {{username}}, This is Your wishList</h1>
+
+
+<div *ngIf="wishList.length > 0" class="container mt-3 ">
+  <div class="mat-elevation-z8 row">
+    <div *ngFor="let foodItem of wishList" class=" mb-4">
+      <mat-card class="custom-card  ">
+        
+        <div class="row">
+          
+        <div class="card-left col-md-7 bg-secondary text-white">
+          <mat-card-title><strong>Product :</strong>{{ foodItem.nix_item_name }}</mat-card-title>
+          <mat-card-subtitle><strong>Brand:</strong>{{ foodItem.nix_brand_name }}</mat-card-subtitle>
+          <img [src]="foodItem.image_url" alt="{{ foodItem.nix_item_name }} Image" class="card-image img-fluid  left" />
+        </div>
+        <div class="card-right col-md-1"></div>
+        <div class="card-right col-md-4">
+          <mat-card-header>
+            <mat-card-title>{{ foodItem.nix_item_name }}</mat-card-title>
+            <mat-card-subtitle>{{ foodItem.nix_brand_name }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Serving Quantity:</strong> {{ foodItem.serving_qty }} {{ foodItem.serving_unit }}</p>
+            <p><strong>Calories:</strong> {{ foodItem.nf_calories }}</p>
+            <p><strong>Total Fat:</strong> {{ foodItem.nf_total_fat }}</p>
+            <p><strong>Saturated Fat:</strong> {{ foodItem.nf_saturated_fat }}</p>
+            <p><strong>Cholesterol:</strong> {{ foodItem.nf_cholesterol }}</p>
+            <p><strong>Sodium:</strong> {{ foodItem.nf_sodium }}</p>
+            <p><strong>Total Carbohydrate:</strong> {{ foodItem.nf_total_carbohydrate }}</p>
+            <p><strong>Dietary Fiber:</strong> {{ foodItem.nf_dietary_fiber }}</p>
+            <p><strong>Sugars:</strong> {{ foodItem.nf_sugars }}</p>
+            <p><strong>Protein:</strong> {{ foodItem.nf_protein }}</p>
+            <p><strong>Potassium:</strong> {{ foodItem.nf_potassium }}</p>
+            
+            
+            <button mat-icon-button (click)="deleteFoodItemFromWishList(foodItem)" class = "bg-danger">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-card-content>
+        </div>
+      </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="wishList.length === 0" class="text-center mt-3 text-danger">
+  <h1>NO ITEMS FOUND IN YOUR WISHLIST</h1>
+  <p>Click below button to add new products to your wishlist</p>
+</div>
+
+<div class="text-center mt-3">
+  <button mat-raised-button color="primary" (click)="addNewProducts()">Add New Products</button>
+</div>
+
+<div class="text-center mt-3">
+  <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>wishlist works!</p>
+<div *ngFor="let foodItem of wishList">
+    
+  {{foodItem | json }}
+  <br> 
+  <button (click)="deleteFoodItemFromWishList(foodItem)">Delete Product</button>
+  <br> <br>
+</div>
+<br>
+<button (click)="addNewProducts()">Click to add new products</button>
+<br><br>
+<button (click)="logout()">Logout</button> -->
+
+
+<!-- <br>
+<h1 class="text-center"> Hi {{username}} , This is Your wishList</h1>
+
+<div  *ngIf="wishList.length > 0"  class="container mt-3">
+  <mat-table  [dataSource]="wishList" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="itemName">
+      <mat-header-cell *matHeaderCellDef> Item Name </mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nix_item_name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="brandName">
+      <mat-header-cell *matHeaderCellDef> Brand Name </mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nix_brand_name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="servingQuantity">
+      <mat-header-cell *matHeaderCellDef> serving Quantity</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.serving_qty }} {{ foodItem.serving_unit }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="calories">
+      <mat-header-cell *matHeaderCellDef> calories</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_calories }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="totalfat">
+      <mat-header-cell *matHeaderCellDef>Total Fat</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_total_fat }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="cholesterol">
+      <mat-header-cell *matHeaderCellDef>cholesterol</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_cholesterol }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sodium">
+      <mat-header-cell *matHeaderCellDef>sodium</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_sodium }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="totalCarbohydrate">
+      <mat-header-cell *matHeaderCellDef>total carbohydrate</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_total_carbohydrate }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dietaryFiber">
+      <mat-header-cell *matHeaderCellDef>dietary fiber</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_dietary_fiber }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sugars">
+      <mat-header-cell *matHeaderCellDef>sugars</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_sugars }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="protein">
+      <mat-header-cell *matHeaderCellDef>protein</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_protein}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="potassium">
+      <mat-header-cell *matHeaderCellDef>potassium</mat-header-cell>
+      <mat-cell *matCellDef="let foodItem"> {{ foodItem.nf_potassium }} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+      <mat-cell *matCellDef="let foodItem">
+        <button mat-icon-button (click)="deleteFoodItemFromWishList(foodItem)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</div>
+
+<div *ngIf="wishList.length === 0" class="text-center mt-3 text-danger">
+  <h1>NO ITEMS FOUND IN YOUR WISHLIST</h1>
+  <p>Click below button to add new products to your wishlist</p>
+</div>
+
+<div class="text-center mt-3">
+  <button mat-raised-button color="primary" (click)="addNewProducts()">Add New Products</button>
+</div>
+
+<div class="text-center mt-3">
+  <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+</div> -->
